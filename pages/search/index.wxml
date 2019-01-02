@@ -1,0 +1,91 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__desc" style="margin-left:5px">{{d}}</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <view class="weui-cells searchbar-result" wx:if="{{searchResultList.length > 0}}">
+            <view wx:for="{{searchResultList}}" bindtap="doSearch" data-id="{{item.id}}" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>{{item.company_name}}</view>
+                </view>
+            </view>  
+        </view>
+
+        <block wx:if="{{showResult}}">
+            <view style="margin:5px">
+            <button type="default" style="margin-bottom:10px;" bindtap="genqrcode">生成图片分享</button>   
+                    
+            </view>
+            <block wx:if="{{title == '查融资'}}">
+             <view class="weui-panel weui-panel_access">
+                  <view class="weui-panel__hd">{{v.company_name}}</view>
+                  <view class="weui-panel__bd">
+                      <view class="weui-media-box weui-media-box_text">
+                          <view class="weui-media-box__title weui-media-box__title_in-text">公司全名</view>
+                          <view class="weui-media-box__desc">{{v.full_name}}</view>
+                      </view>
+                      <view class="weui-media-box weui-media-box_text">
+                          <view class="weui-media-box__title weui-media-box__title_in-text">公司地址</view>
+                          <view class="weui-media-box__desc">{{v.address}}</view>
+                      </view>
+                      <view class="weui-media-box weui-media-box_text">
+                          <view class="weui-media-box__title weui-media-box__title_in-text">公司描述</view>
+                          <view class="weui-media-box__desc">{{v.description}}</view>
+                      </view>
+                      <view class="weui-media-box weui-media-box_text">
+                          <view class="weui-media-box__title weui-media-box__title_in-text">联系电话</view>
+                          <view class="weui-media-box__desc" bindtap="callPhone" data-phone="{{v.phone}}">{{v.phone}}</view>
+                      </view>
+                      <view class="weui-media-box weui-media-box_text">
+                          <view class="weui-media-box__title weui-media-box__title_in-text">电子邮件</view>
+                          <view class="weui-media-box__desc">{{v.email}}</view>
+                      </view>
+                      <view class="weui-media-box weui-media-box_text">
+                          <view class="weui-media-box__title weui-media-box__title_in-text">当前融资</view>
+                          <view class="weui-media-box__desc">{{v.invest_round}}</view>
+                      </view>
+                      <view class="weui-media-box weui-media-box_text">
+                          <view class="weui-media-box__title weui-media-box__title_in-text">融资日期</view>
+                          <view class="weui-media-box__desc">{{v.invest_date}}</view>
+                      </view>
+                      <view class="weui-media-box weui-media-box_text">
+                          <view class="weui-media-box__title weui-media-box__title_in-text">公司网址</view>
+                          <view class="weui-media-box__desc">{{v.website}}</view>
+                      </view>
+                      <view class="weui-media-box weui-media-box_text">
+                          <view class="weui-media-box__title weui-media-box__title_in-text">经营范围</view>
+                          <view class="weui-media-box__desc">{{v.scope}}</view>
+                      </view>
+                      <view class="weui-media-box weui-media-box_text">
+                          <view class="weui-media-box__title weui-media-box__title_in-text">Tag</view>
+                          <view class="weui-media-box__desc">{{v.tag}}</view>
+                      </view>
+                      
+
+                  </view>
+
+              </view>
+            </block>
+            <view style="margin:5px">
+            <button type="primary" open-type="share" style="margin-bottom:10px;" bindtap="shareCompany">分享给朋友</button>           
+            </view>
+
+        </block>
+    </view>
+</view>

@@ -1,0 +1,112 @@
+<view class="page">
+    <view class="page__bd">
+    <view class="box box-rl">
+                <view class="box box-rl box-space">
+                <text class="btn-text">智能客服</text>
+                <image style="width:20px;height:20px;" src="../../images/callcenter.png"></image>
+                </view>
+                <contact-button style="opactiy:0" wx:for="{{[1,2,3,4,5]}}"  wx:for-item="i"
+                type="default-light"
+                size="27"
+                style="position:fixed;top:10px;right:{{i*10}}px;"
+                session-from="weapp"
+                ></contact-button>
+            
+    </view>
+
+        <view class="weui-cells__title">特色服务</view>
+        <view class="weui-cells_after-title">
+          <view class="weui-grids" style="margin:30rpx;">
+              <navigator url="../card/index" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/card.png" />
+                      <view class="weui-grid__label">微趣名片</view>
+              </navigator>
+              <navigator url="../eform/index" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/eform.png" />
+                      <view class="weui-grid__label">微趣表单</view>
+              </navigator>    
+              <!--../paper/index-->
+              <navigator url="/pages/paper/index" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/paper.png" />
+                      <view class="weui-grid__label">试题秀</view>
+              </navigator>
+
+              <navigator url="../logs/logs" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/note.png" />
+                      <view class="weui-grid__label">备忘录</view>
+              </navigator>     
+              <navigator url="../myform/index?id={{form.fapiao}}&title=发票抬头" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/fapiao.png" />
+                      <view class="weui-grid__label">发票抬头</view>
+              </navigator>
+              <navigator url="../card/view/index?touid={{App.globalData.id}}" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/card.png" />
+                      <view class="weui-grid__label">我的名片</view>
+              </navigator>   
+              <navigator url="../chatroom/chatroom" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/card.png" />
+                      <view class="weui-grid__label">微趣聊天</view>
+              </navigator>      
+          </view>
+        </view>
+        
+
+
+        <!--  -->
+        <view class="weui-cells__title">我们的其他小程序</view>
+        <view class="weui-cells_after-title">
+          <view class="weui-grids" style="margin:30rpx;">
+              <view bindtap="openMiniTeam" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/mini_team.png" />
+                      <view class="weui-grid__label">小团队管理</view>
+                      <view class="data-rb" style="color:orange">开放源代码！</view>
+              </view>
+              <view bindtap="openMiniMall" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/mini_mall.png" />
+                      <view class="weui-grid__label">小程序商城</view>
+              </view>   
+              <navigator url="/pages/mall/index" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/kaidian.png" />
+                      <view class="weui-grid__label">免费开微店</view>
+              </navigator>                    
+          </view>
+        </view>
+        
+
+
+        <view class="weui-cells__title">其他</view>
+        <view class="weui-cells_after-title">
+          <view class="weui-grids" style="margin:30rpx;">
+              <navigator url="/pages/eform/index?id=m5y3veg1z4" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/form.png" />
+                      <view class="weui-grid__label">小程序调查</view>
+              </navigator>
+              <navigator url="../search/index?title=查融资&d=输入公司名查询该公司的公开融资情况" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/invest.png" />
+                      <view class="weui-grid__label">查融资</view>
+                      <view class="data-rb">来自IT桔子</view>
+              </navigator>    
+              <navigator url="../help/index" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/help_red.png" />
+                      <view class="weui-grid__label">帮助中心</view>
+              </navigator>
+              <!--
+
+              <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/phone.png" />
+                      <view class="weui-grid__label">查电话</view>
+                      <view class="data-rb">来自Google</view>
+              </navigator>
+              <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+                      <image class="weui-grid__icon" src="../../images/ip.png" />
+                      <view class="weui-grid__label">查IP来源</view>
+                      <view class="data-rb">来自Google</view>
+              </navigator>
+              -->
+          </view>
+        </view>
+
+
+        
+    </view>
+</view>    

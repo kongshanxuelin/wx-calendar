@@ -1,0 +1,73 @@
+.pageContainer{
+  width:100%;
+  height:100%;
+  background-color: #F0F0F0;
+}
+
+.clear{
+  clear:both;
+}
+
+.topArea{
+  width:100%;
+  padding-bottom:110px;
+  background-color: #F0F0F0;
+}
+
+.selfMessage{
+  float:right;
+  width:100%;
+  text-align: right;
+  padding-top: 5px;
+}
+
+.otherMessage{
+  float:left;
+  width:100%;
+  padding-top: 5px;
+}
+
+.selfMessage .nameInfo{
+  font-size: 12px;
+  width:100%;
+  color:#FF5151;
+}
+
+.otherMessage .nameInfo{
+  font-size: 12px;
+  width:100%;
+  color:#0066CC;
+}
+
+
+.detailMessage{
+  font-size: 16px;
+  width:100%;
+}
+
+.bottomArea{
+  width:100%;
+  position:fixed;
+  bottom:0px;
+  border-top: 1px solid #333333;
+}
+
+.inputArea{
+  text-align: center;
+  width:100%;
+  font-size:16px;
+}
+
+.message{
+  background-color: white;
+  width:95%;
+  padding-left: 5%;
+  height: 45px;
+}
+
+.sendButton{
+
+  height: 40px;
+  font-size: 16px;
+  width:100%;
+}

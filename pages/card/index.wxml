@@ -1,0 +1,171 @@
+<import src="../template/tabbar.wxml"/>
+
+<view class="page" wx:if="{{curTab == '我的名片'}}">
+    <view class="page__hd">
+        <view class="weui-flex cardBack" style="margin:10px;border:5px solid #fff;">
+           <view  style="flex:2">
+              <view class="weui-flex box-tb" style="margin-left:10px;margin-top:10px;margin-bottom:10px;color:#333;">
+                <view class="weui-flex__item name">{{cardUser.truename}}</view>        
+                <view class="weui-flex__item title">{{cardUser.title}} - {{cardUser.company}}</view>
+                <view class="weui-flex__item title" wx:if="{{cardUser.industry!=null}}">{{cardUser.industry}}</view>
+                
+                <view class="weui-flex__item" style="margin-top:20px" bindtap="callPhone">
+                        <image style="width:18px;height:18px;" src="img/phone.png"></image>
+                        <text style="height:18px;line-height:18px;padding-left:15px;color:green;font-size:16px;">{{cardUser.phone}}</text>
+                </view>
+                <view class="weui-flex__item">
+                   <image style="width:18px;height:18px;" src="img/addr.png"></image>
+                   <text style="height:18px;line-height:18px;padding-left:15px;">{{cardUser.addr}}</text>
+                </view>
+              </view>
+           </view>
+           <view class="weui-flex__item" style="text-align:right;margin:15px 10px 0px 0px;">
+            <image src="{{cardUser.avator}}" mode="aspectFit" style="height: 60px;width:60px;border-radius:10px;" />
+           </view>
+        </view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-flex" style="background-color:#fff;padding:10px 10px;height:24px;margin-bottom:10px;" >
+                <view class="cardBtnItem cardBtnItemRightLine" >
+                        <view class="weui-navbar__title justcontent-center">
+                        <image style="width:24px;height:24px;" src="img/renqi-active.png"></image>
+                        <text>人气：{{cardUser.viewnum}}</text>
+                        </view>
+                </view>
+                <view class="cardBtnItem cardBtnItemRightLine">
+                        <view class="weui-navbar__title justcontent-center">
+                        <image style="width:24px;height:24px;" src='img/like-active.png'></image>
+                        <text>赞：{{cardUser.likenum}}</text>
+                        </view>
+                </view>
+                <view class="cardBtnItem">
+                        <view class="weui-navbar__title justcontent-center">
+                        <image style="width:24px;height:24px;" src='img/fav-active.png'></image>
+                        <text>保存：{{cardUser.savenum}}</text></view>
+                </view>
+        </view>
+        <block wx:if="{{mode=='edit'}}">
+        <view  class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">姓名</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input value="{{cardUser.truename}}" class="weui-input" bindinput="changeInput" data-name="truename" placeholder="请输入真实姓名" />
+                </view>
+        </view>
+       
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">公司</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" value="{{cardUser.company}}" bindinput="changeInput" data-name="company" placeholder="请输入所在公司" />
+                </view>
+        </view>
+        
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">职位</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入公司职位" value="{{cardUser.title}}" bindinput="changeInput" data-name="title" />
+                </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input weui-cell_vcode" style="height:38px;line-height:38px;">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">行业</view>
+                </view>
+                <view class="weui-cell__bd">
+                   <picker bindchange="bindPickerChange" value="{{index}}" range="{{industryItems}}">
+    <view class="picker" style="background:url(../../images/right.png) right center no-repeat;color:#888;">
+      {{cardUser["industry"] != null ? cardUser.industry:"未设置"}}
+    </view>
+  </picker>
+                </view>
+        </view>
+       
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">联系电话</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input type="number" class="weui-input" placeholder="请输入联系电话" value="{{cardUser.phone}}" bindinput="changeInput" data-name="phone"/>
+                </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">地址<image style="width:16px;height:16px;margin-left:5px;" bindtap="chooseLoc" src="img/addr.png"></image></view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input value="{{cardUser.addr}}" class="weui-input" placeholder="请输入真实地址" bindinput="changeInput" data-name="addr"/>
+                </view>
+        </view>
+        
+        <view style="margin:0px 15px 30px 15px">
+        <button type="primary" style="margin-bottom:10px;" bindtap="doFinishConfirmOK">保存名片</button>
+          
+        </view>
+        </block>
+        <block wx:if="{{mode=='view'}}">
+                <view class="cardBtnItem" style="margin:20px 0px;">
+           <view class="weui-flex justcontent-center"  bindtap="genQuan">
+          <image style="width:24px;height:24px;margin-right:5px;" src="img/quan.png"></image>
+          <text>点我生成图片分享到朋友圈</text>
+          </view>
+        </view>
+            <view style="margin:0px 15px 30px 15px">
+        <button type="primary" style="margin-bottom:10px;" bindtap="doEditCard">编辑名片</button>
+        <button type="default" style="margin-bottom:10px;" bindtap="showMyCard">查看转发我的名片</button>
+        <button type="default" style="margin-bottom:10px;" bindtap="saveContact">保存到通讯录</button>
+        
+        </view>
+        </block>
+    </view>
+</view>    
+
+<view class="page" wx:if="{{curTab == '名片夹'}}">
+<view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <view class="weui-cells searchbar-result" style="background-color: #F2F2F2;">
+            <view class="weui-loadmore weui-loadmore_line" wx:if="{{mycard.result.length ==0}}">
+                <view class="title" style="color:orange" bindtap="genQuan">还没任何名片，点击这里分享我的名片到朋友圈</view>
+            </view>
+
+            <view class="weui-cells weui-cells_after-title" wx:if="{{mycard.result.length > 0}}">
+                <navigator url="/pages/card/view/index?touid={{item.id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx: wx:for="{{mycard.result}}" wx:for-index="idx" style="background-color:{{idx%2==0?'#eeeeee':'#ffffff'}};">
+                <view class="weui-cell__hd">
+                    <image src="{{item.avator}}" style="margin-right: 5px;vertical-align: middle;width:45px; height: 45px;"></image>
+                </view>
+                <view class="weui-cell__bd">
+                  <view class="box box-tb">
+                    <text class="name">{{item.truename}}</text>
+                    <text class="title">{{item.title}} {{item.company}}</text> 
+                  </view>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{item.industry}}</view>
+                </navigator>
+            </view>
+
+
+        </view>
+    </view>
+
+</view>
+<template is="tab-bar" data="{{ jhDataForTabbar }}"/>

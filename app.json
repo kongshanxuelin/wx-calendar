@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/start/index",
+    "pages/index/index",
+    "pages/work/index",
+    "pages/logs/logs",
+    "pages/mine/mine",
+    "pages/event/event",
+    "pages/paythanks/paythanks",
+    "pages/stat/stat",
+    "pages/feedback/moments",
+    "pages/mine/bindemail/bindemail",
+    "pages/mine/tag/index",
+    "pages/gesture/index",
+    "pages/help/index",
+    "pages/plan/index",
+    "pages/note/detail",
+    "pages/eform/index",
+    "pages/card/index",
+    "pages/card/view/index",
+    "pages/note/edit/index",
+    "pages/myform/index",
+    "pages/search/index",
+    "pages/dyna/index",
+    "pages/dyna/publish/index",
+    "pages/dyna/order/index",
+    "pages/mall/index",
+    "pages/order/index",
+    "pages/paper/index",
+    "pages/paper/share/index",
+    "pages/chatroom/chatroom"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2A3038",
+    "navigationBarTitleText": "商务工作记事册",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#6D6D6D",
+    "selectedColor": "#19AD19",
+    "borderStyle": "black",
+    "backgroundColor": "#F8F9F9",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png",
+        "text": "日历"
+      },
+      {
+        "pagePath": "pages/dyna/index",
+        "iconPath": "images/shangwu.png",
+        "selectedIconPath": "images/shangwu-active.png",
+        "text": "商务圈"
+      },
+      {
+        "pagePath": "pages/work/index",
+        "iconPath": "images/work.png",
+        "selectedIconPath": "images/work-active.png",
+        "text": "商务工作"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my-active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

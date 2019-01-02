@@ -1,0 +1,17 @@
+<view class="page">
+    <view class="page__bd" wx:if="{{!isHaveTag}}">
+        <view class="weui-cells__title" style="margin:50rpx 0rpx;">您当前还没任何记事记账簿(分享、额外信息、统计)，请选择，开启您的微信记事记账之旅!</view>
+		<checkbox-group bindchange="selectChange">
+			<label class="weui-cell weui-check__label" wx:for="{{selectItems}}" wx:key="value">
+				<checkbox value="{{item.label}}" checked="true"/>
+				<view class="weui-cell__bd">{{item.label}}</view>
+			</label>
+		</checkbox-group>
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="doMyTagGo">即刻进入</button>
+        </view>
+    </view>
+    <view wx:if="{{isHaveTag}}" style="position:absolute;top:50%;margin-top:-90px;height:100%;font-size:42rpx;text-align:center;width:100%;">
+        <view animation="{{animationData}}"><image src="../../images/xing.png" style="width:42rpx;height:42rpx;"></image>一览日程，便于计划…</view>
+    </view>
+</view>    

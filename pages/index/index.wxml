@@ -1,0 +1,241 @@
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}">
+</view>
+
+<view class="bottom-menu-bar" wx:if="{{isShowBottomBar}}" >
+<view class="bottom-menu-bar-item" style="background-color:#E175AB" hover-class="bottom-menu-bar-item-hover" bindtap="addTask">
+    <image src="img/plus2.png"></image>
+</view>
+</view>
+
+<view class="qqpage">
+    <view class="qqpage-bottom" style="{{theme}}">
+        <view class="qqpage-content">
+                    <scroll-view scroll-y="true" style="height: {{height-29}}px">
+                        <view wx:for="{{mytags}}" wx:key="{{item.id}}" data-label="{{item.label}}" data-tag="{{item.tag_id}}" data-bgcolor="{{item.bg_color}}" data-id="{{item.id}}" bindtap="changeTag"  style="background-color:{{item.bg_color}};color:#FAFBFE;margin:20rpx 0 0 15rpx;" class="weui-flex">
+                            <view class="weui-flex__item" style="text-align:center">
+                          {{(item.share=='1')?"*":""}}  {{item.label}}
+                        <!--
+                            <text wx:if="{{item.tag_id === 'zhang'}}" style="display:block;font-size:10px;color:light;text-align:center;">当月：-12k</text>
+                            -->
+                            </view>
+                        </view>
+
+                        <!-- 输入框 -->
+                        <view wx:if="{{showAddTag}}" style="color:#FAFBFE;margin:20rpx 0 0 15rpx;" class="weui-flex">
+                            <view class="weui-flex__item">
+                            <input type="text" placeholder="Tag名，最多6个字" class="index-input-style" auto-focus="true" style="width:95%" maxlength="6" confirm-type="done" bindconfirm="doAddTagOK" bindblur="doAddTagBlur"/>
+                            </view>
+                        </view>
+                    </scroll-view>
+                    <view class="box box-rl" style="height:28px;position:fixed;bottom: 5px;width:250rpx;">
+                        <view class="button-group-area">
+                            <view class="button-group" bindtap="doTagMgr">
+                                <image src="../../images/settings.png" class="button-image" />
+                                
+                            </view>
+                            <view class="button-group" bindtap="addTag">    
+                                <image src="../../images/help.png" class="button-image" />
+                            </view>     
+                        </view>
+                    </view>
+                   
+        </view>
+    </view>
+    <view class="qqpage-top {{open ? 'qqc-state1' : ''}}" style="height:{{height}}px">
+
+        <view class="top" style="padding-top:4px;{{theme}}">
+            <view class="top_text">
+            <image background-size="cover" class="menu-img" src="img/c.png" bindtap="clickmemo"/>
+            <image background-size="cover" class="menu-img" src="img/month.png" bindtap="planMonth"/>
+            </view>
+            <view class="top_right" style="padding-right:4px">
+
+                <image bindtap="doScan" class="menu-img" style="margin-right:10rpx" src="img/scan.png"/>
+
+                <image bindtap="switchToday" class="menu-img" style="margin-right:10rpx" src="img/today.png"/>
+                
+                <image style="border-radius: 0;margin-right:10rpx" class="menu-img" src="../../images/help.png" bindtap="moremenu"/>
+                    
+            
+            </view>
+        </view>
+
+
+ 
+<view class="calendar pink-color box box-tb">
+        <view class="top-handle fs28 box box-lr box-align-center box-pack-center" >
+            <view class="prev box box-rl" bindtap="handleCalendar" data-handle="prev">
+                <view class="prev-handle box box-lr box-align-center box-pack-center">
+                    <image src="img/left.png"></image>
+                </view>
+            </view>
+            <view class="date-area box box-lr box-align-center box-pack-center">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+            <view class="next box box-lr" bindtap="handleCalendar" data-handle="next">
+                <view class="next-handle box box-lr box-align-center box-pack-center">
+                   <image src="img/right.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="weeks box box-lr box-pack-center box-align-center">
+            <view class="flex week fs28 {{(item==='六' || item==='日') ? ' weekend-color':''}}" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+        </view>
+        <view class="days box box-lr box-wrap" 
+        bindtouchstart="scrollTouchstart" 
+        bindtouchmove="scrollTouchmove" 
+        bindtouchend="scrollTouchend" 
+        animation="{{animation}}">
+            <view wx:if="{{hasEmptyGrid}}" class="grid white-color box box-align-center box-pack-center" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+            </view>
+           
+            <view class="grid white-color box box-align-center box-pack-center{{item.fj=='1'?' ban':(item.fj=='2'?' jia':'')}}" wx:for-index="idx" wx:for="{{days}}" wx:key="{{date}}">
+                <view wx:if="{{item.nWeek==99}}" class="day weekend2-color" data-date="{{item.date}}" bindtap="logWeek">
+                    <view class="flex-view-item" style="padding-top:10rpx"> {{item.day}}</view>
+                </view>
+                <view wx:if="{{item.nWeek!=99}}" class="day{{item.isToday?' border-radius day-bg-today':''}}{{(item.nWeek == 6 || item.nWeek == 7) ? ' weekend-color':''}}{{item.tasks.length>0?' day-reddot':''}} {{item.date==cDateInt?'day-bg-tasks':''}}" bindtap="tapOneDay" bindlongtap="addTask" data-date="{{item.date}}">
+                    <view class="flex-view-item"> {{item.day}}</view>
+                    <view class="flex-view-item2">{{item.nl}}</view>
+                    
+                </view>
+                
+            </view>      
+        </view>
+    </view>
+
+<view class="weui-flex tip-item" style="margin:0;padding:0px 5px;background:{{tagBgColor}}">
+    <view class="weui-flex__item" style="text-align:right;margin-top:4px;" >    
+        <image bindtap="goPageStat" src="../../images/stat3.png" style="width:22px;height:22px;" wx:if="{{isShowTagNameStat}}">统计</image>
+    </view>
+    <view class="weui-flex" style="margin-top:2px;">
+        <text bindtap="switchMyTag" style="color:#FFFFFF;text-decoration:underline;">{{tagName}}</text>
+        <text style="color:#FFFFFF;padding-left:30rpx;">{{cDateStr}} </text>
+    </view>
+
+</view>
+
+
+
+<scroll-view scroll-y="true" style="aa:{{height}};height: {{height-350}}px">    
+
+<view class="notify-item flex-wrp" wx:if="{{isFes}}">
+      <view class="avatar flex-item">
+        <image src="img/jieri.png"></image>
+      </view>
+      <view class="notify-content flex-item">
+        <text class="notify-source">全天</text>
+        <text class="notify-title">{{fesName}}</text>
+      </view>
+</view>
+
+  <view class="notify-item flex-wrp"  wx:for="{{tasks}}" wx:key="{{item.id}}" bindlongtap="deleteTask" data-task="{{item}}">
+      <view class="avatar flex-item">
+            <image wx:if='{{item.task_type=="i"}}' src="img/pic.png"></image>
+            <image wx:elif='{{item.task_type=="s"}}' src="img/sound.png" src="img/sound.png"></image>
+            <image wx:else src="img/pic.png" src="img/alart.png"></image>
+      </view>
+      <view class="notify-content flex-item" >
+        <view class="notify-source">
+            
+            <text>{{item.time}} {{item.onn ? "  From "+item.onn:""}}</text>
+            <text style="color:black;" wx:if="{{item.alarm_freq_starttime}}">与 {{item.alarm_freq_starttime}} 提醒</text>
+        </view>
+        <view class="notify-title">
+        {{item.task_content}}
+        <block wx:if="{{item.props.length>0}}" >
+            
+            <view  class="weui-flex notify-title" style="width:750rpx;color:{{item.mytag.bg_color}}">
+               <view  wx:for="{{item.props}}" wx:for-item="prop" wx:key="{{prop.id}}" class="weui-flex__item">
+               {{index==0?("["+item.mytag.label+"]"):""}} {{prop.v_label}} {{prop.prop.labelSuffix}}
+               </view>
+            </view>
+        </block>
+        </view>
+
+    
+        <view class="images-wrapper" wx:if="{{item.atta}}">
+          <!--<text class="images-text">图片/语音</text>-->
+          <view class="images-list" style="padding:0px;margin:0px;">
+            <block wx:for-items="{{item.atta}}" wx:for-item="atta">
+              <image wx:if="{{atta.spath!=='audio'}}" src="{{uploadPath}}{{atta.spath}}" class="images-image" data-src="{{uploadPath}}{{atta.path}}" bindtap="previewImageTask" style="width:148rpx;height:148rpx;border-radius: 0;"></image>
+              <button class="weui-btn" size="mini" type="primary" data-url="{{uploadPath}}{{atta.path}}" bindtap="playAudio" wx:if="{{atta.spath=='audio'}}">播放录音</button>
+            </block>
+          </view>
+    </view>
+      </view>
+    </view>
+
+</scroll-view>
+
+    </view>
+</view>
+
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}"> 
+<view class="bg" style="background-color:{{tagBgColor}};padding-left:5px;font-size:14px;color:#FFFFFF;line-height:25px;height:25px;">{{tagName}} - {{cDateStr}}</view>
+<form bindsubmit="addTaskPic" report-submit="true">
+    <view class="index-input-view"> 
+        <input type="text" placeholder="输入备注" bindblur="input_content" confirm-type="next" class="index-input-style"/>
+        <view style="float:right;margin-right:20rpx;width:300rpx;">
+            <image src="img/takephone.png" bindtap="chooseImageTake" style="margin-right:10rpx"></image>
+            <image src="img/pic.png" bindtap="chooseImage"  style="margin-right:10rpx"></image>
+            <image style="margin-right:10rpx" src="img/sound.png" bindtap="chooseAudio"></image> 
+            <image src="img/alert.png" bindtap="toggleAlertPanel"></image> 
+        </view>
+    </view> 
+    <!--显示提醒面板-->
+    <view class="weui-cell weui-cell_input" wx:if="{{isShowAlertPanel}}">
+
+    <view class="weui-cells__title">提醒设定：</view>
+    <view class="weui-cells weui-cells_after-title">
+                    <picker class="weui-btn" mode="date" value="{{alertDate}}" bindchange="bindAlertDateChange">
+                    <button size="mini" class="weui-btn mini-btn" plain="true" type="default">{{alertDate}}</button>
+                </picker>
+
+    </view>
+    <view style="margin-left:30rpx" class="weui-cells weui-cells_after-title">
+                    <picker class="weui-btn" mode="time" value="{{alertTime}}" bindchange="bindAlertTimeChange">
+                    <button size="mini" class="weui-btn mini-btn" plain="true" type="default">{{alertTime}}</button>
+                </picker>
+    </view>
+
+    </view>
+    <!--根据当前不同的Tag显示不同的扩展字段输入-->
+    
+    <view class="weui-cell weui-cell_input" wx:for="{{tagProps}}">
+        <view wx:if="{{item.component == 'text'}}" class="weui-cell__hd">
+            <view class="weui-label">{{item.label}}</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input bindinput="propChange" data-propId="{{item.id}}" wx:if="{{item.component == 'text'}}" class="weui-input" maxlength="{{item.maxlen}}" type="{{item.input_type}}" placeholder="" value="{{item.input_defaultValue}}"/>
+            <picker bindchange="propChange" data-array="{{item.listCompoenet}}" data-propId="{{item.id}}" wx:if="{{item.component == 'select'}}" range-key="v" index="0" range="{{item.listCompoenet}}">
+            <view class="picker">
+            {{item.label}}：{{item.listCompoenet[propIndexes[item.id]].v}}
+            </view>
+            </picker>
+        </view>
+        <view class="weui-cell__ft">
+            {{item.labelSuffix}}
+        </view>
+    </view>
+   
+
+    <view class="images-wrapper">
+          <!--<text class="images-text">图片/语音</text>-->
+          <view class="images-list">
+            <block wx:for-items="{{imageList}}" wx:for-item="image">
+              <image bindlongtap="removeFromImageList" src="{{image}}" class="images-image" data-src="{{image}}" bindtap="previewImage"></image>
+            </block>
+          </view>
+          <view style="text-align:center;" wx:if="{{recording === true}}">
+                正在录音：{{ formatedRecordTime }}  
+          </view>
+          <view wx:if="{{recording_finished}}" style="text-align:center;">
+                录音完毕
+          </view>
+    </view>
+    <view class="btn-area btn-view">
+        <button type="primary" class="form-btn" formType="submit">确定</button>
+        <button class="form-btn" bindtap="addTask_click_cancel">取消</button>
+    </view>
+
+    
+    </form>
+</view>     

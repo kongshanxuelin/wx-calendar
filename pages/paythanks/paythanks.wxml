@@ -1,0 +1,20 @@
+<view class="page">
+    <view class="page__hd" style="margin:30rpx">
+        <view class="page__title">捐赠名单</view>
+        <view class="page__desc">感谢热心网友对本小程序的捐赠回馈            </view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell" wx:for="{{users}}">
+                <view class="weui-cell__hd">
+                    <image src="{{item.avator}}" style="margin-right: 5px;vertical-align: middle;width:64rpx; height: 64rpx;border-radius: 50%;"></image>
+                </view>
+                <view class="weui-cell__bd">{{item.nick}}</view>
+                <view class="weui-cell__ft">捐 <text style="font-weight:bold;color:#0000FF">{{item.fee/100}}</text> 元 </view>
+            </view>
+        </view>
+    </view>
+    <view class="page__ft">
+        <button bindtap="loadmore" class="weui-btn" type="primary" plain="true" style="{{page.hasNext?'':'display:none'}}">加载更多</button>
+    </view>
+</view>

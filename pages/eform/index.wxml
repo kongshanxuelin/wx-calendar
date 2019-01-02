@@ -1,0 +1,76 @@
+<view class="page">
+    <view class="page__hd">
+        
+    </view>
+    <view class="page__bd">
+        <block wx:if="{{!scanIn}}">
+            <view class="box box-tb box-pack-center box-align-center" style="margin-top:50px;margin-bottom:10px" bindtap="doScan">
+                <image style="width:64px;height:64px;" src="../../images/scan2.png" />
+                <text style="font-size:12px;color:gray;margin-top:10px;">扫一扫微趣表单二维码打开表单</text>
+                <text style="font-size:12px;color:orange;margin-top:10px;">浏览器定义管理表单：https://wx.sumslack.com/microteam/</text>                
+            </view>
+
+          <view class="weui-cells__title">我的表单</view>
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell" wx:for="{{tmplList}}">
+                  <view class="weui-cell__bd">{{item.title}}</view>
+                  <view class="weui-cell__ft">
+                    <text bindtap="genqrcode" data-id="{{item.id}}">生成图片转发</text>
+                  </view>
+              </view>
+          </view>
+
+        </block>
+        <block wx:if="{{scanIn}}">
+        <view class="weui-cells__title">{{tmpl.title}}</view>
+        <view class="weui-cells__title" wx:if="{{tmpl.header!=''}}">{{tmpl.header}}</view>
+        
+        <view class="weui-cells weui-cells_after-title" wx:for="{{tmpl.fields}}" wx:key="{{item.id}}">
+            <view class="weui-cell ">
+                <view class="weui-cell__bd">
+                    <view class="weui-cells__title">{{(item.ui_isreq=='Y'?'*':'') + item.title}}</view>
+                    <view class="weui-cells weui-cells_after-title">  
+                    <input placeholder="{{item.ui_isreq=='Y'?('必须输入，限'+item.ui_maxlen+'字'):('限'+ui_maxlen+'字')}}" bindinput="propChange" data-propId="{{item.id}}" data-propComp="{{item.ui_component}}" wx:if="{{item.ui_component=='text'}}" class="weui-input" type="text" />
+                    <input placeholder="{{item.ui_isreq=='Y'?'必须输入项':'输入数字'}}" bindinput="propChange" data-propId="{{item.id}}" data-propComp="{{item.ui_component}}" wx:if="{{item.ui_component=='number' && item.ui_other=='number'}}" class="weui-input" type="number" />
+                    <input placeholder="{{item.ui_isreq=='Y'?'必须输入项':'输入数字'}}" bindinput="propChange" data-propId="{{item.id}}" data-propComp="{{item.ui_component}}" wx:if="{{item.ui_component=='number' && item.ui_other=='float'}}" class="weui-input" type="digit" />
+                    <picker bindchange="propChange" data-array="{{item.ui_other}}" data-propId="{{item.id}}" data-propComp="{{item.ui_component}}" wx:if="{{item.ui_component == 'select'}}" index="0" range="{{item.ui_other}}">
+                      <view class="picker">
+                      {{fieldValue[item.id] ? item.ui_other[fieldValue[item.id]]:'请选择'}}
+                      </view>
+                    </picker>
+                    <picker bindchange="propChange" data-propId="{{item.id}}" data-propComp="{{item.ui_component}}" wx:if="{{item.ui_component == 'date'}}" mode="date">
+                      <view class="picker">
+                      {{fieldValue[item.id] ? fieldValue[item.id]:'请选择'}}
+                      </view>
+                    </picker>
+                    <picker bindchange="propChange" data-propId="{{item.id}}" data-propComp="{{item.ui_component}}" wx:if="{{item.ui_component == 'time'}}" mode="time">
+                      <view class="picker">
+                      {{fieldValue[item.id] ? fieldValue[item.id]:'请选择'}}
+                      </view>
+                    </picker>
+                    <radio-group class="radio-group" data-propId="{{item.id}}" data-propComp="{{item.ui_component}}" bindchange="propChange" wx:if="{{item.ui_component == 'radio'}}">
+                      <label style="margin-top:5px;" class="radio" wx:for="{{item.ui_other}}">
+                        <radio value="{{item}}"/>{{item}}
+                      </label>
+                    </radio-group>
+                    <checkbox-group bindchange="propChange" data-propId="{{item.id}}" data-propComp="{{item.ui_component}}" wx:if="{{item.ui_component == 'checkbox'}}">
+                      <label style="margin-top:5px;" class="checkbox" wx:for="{{item.ui_other}}">
+                        <checkbox value="{{item}}"/>{{item}}
+                      </label>
+                    </checkbox-group>
+                    <textarea  data-propId="{{item.id}}" data-propComp="{{item.ui_component}}" wx:if="{{item.ui_component == 'textarea'}}" maxlength="500"  class="weui-textarea" bindinput="propChange" placeholder="限{{item.ui_maxlen}}字" style="height: 3.3em" />
+                    </view>
+                </view>
+            </view>
+         </view>   
+
+        <view class="weui-cells__title" wx:if="{{tmpl.footer!=''}}">{{tmpl.footer}}</view>
+        
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="doSubmit">提交表单</button>
+            <button class="weui-btn" type="default" open-type="share" >转发给好友</button>
+        </view>
+       </block>
+    </view>
+</view>    
+

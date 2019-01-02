@@ -1,0 +1,40 @@
+@import "../template/tabbar.wxss";
+page{
+  background-color: #F2F2F2;
+  padding-bottom: 70px;
+}
+.page{
+  background-color: #F2F2F2;
+  
+}
+
+
+.weui-cell{
+  background-color:#fff;
+}
+
+.weui-label{
+  font-size:12px;
+  color:#333;
+}
+
+
+.weui-cells__title {
+margin-top:.77em;
+margin-bottom:.8em;
+padding-left:15px;
+padding-right:15px;
+color:#999999;
+font-size:14px;
+
+}
+radio-group {
+display:flex;
+flex-direction:column;
+
+}
+checkbox-group {
+display:flex;
+flex-direction:column;
+
+}

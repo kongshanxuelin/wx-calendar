@@ -1,0 +1,40 @@
+<view class="page">
+    <view class="page__hd page__hd_spacing" style="margin-bottom:30rpx;color:orange;font-size:34rpx;">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+                    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                        <view class="weui-cell__bd weui-cell_primary">
+                            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                                <view class="picker">
+                                    选择记事记账簿：{{array[index]}}
+                                </view>
+                            </picker>
+                        </view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access">
+                        </view>
+                    </view>
+            </view>
+        </view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">按月<text style="color:red">支出</text>统计</view>
+            <view class="weui-panel__bd">
+                    <view wx:for="{{zhichu}}" wx:key="{{id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                        <view class="weui-cell__bd weui-cell_primary">{{item.dt}}</view>
+                        <view class="weui-cell__ft">{{item.num}} 元</view>
+                    </view>
+            </view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">按月<text style="color:green">收入</text>统计</view>
+            <view class="weui-panel__bd">
+                    <view wx:for="{{shouru}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                        <view class="weui-cell__bd weui-cell_primary">{{item.dt}}</view>
+                        <view class="weui-cell__ft">{{item.num}} 元</view>
+                    </view>
+            </view>
+        </view>
+
+    </view>
+</view>

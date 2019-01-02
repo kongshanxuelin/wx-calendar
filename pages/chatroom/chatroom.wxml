@@ -1,0 +1,23 @@
+<view class="pageContainer">
+    <view class="topArea">
+        <view wx:for="{{messageArray}}" wx:for-index="idx" wx:for-item="itemName">
+            <view class="selfMessage" wx:if="{{itemName.type == 'self'}}">
+                <view class="nameInfo">{{itemName.name+ " " + itemName.time}}</view>
+                <view class="detailMessage">{{itemName.message}}</view>
+            </view>
+            <view class="otherMessage" wx:else>
+                <view class="nameInfo">{{itemName.name+ " " + itemName.time}}</view>
+                <view class="detailMessage">{{itemName.message}}</view>
+            </view>
+            <view class="clear"></view>
+        </view>
+    </view>
+    <view class="bottomArea">
+        <form bindreset="send">
+            <view class="inputArea">
+                <input type="text" placeholder="{{placeholderText}}" class="message" bindinput="bindKeyInput"/>
+            </view>
+            <button size="default" type="primary" form-type="reset" class="sendButton">发送</button>
+        </form>
+    </view>
+</view>

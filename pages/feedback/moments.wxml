@@ -1,0 +1,30 @@
+<view class="page">
+    <view class="page__bd">           
+        <view class="weui-panel">
+            <view class="weui-panel__hd">
+                <form bindreset="cleanInput">
+                <textarea bindinput="textareaChange" value="{{inputContent}}" auto-focus maxlength="200"  class="weui-textarea" bindconfirm="addFeedback" placeholder="请输入反馈意见" style="height: 3.3em" />
+                <view class="weui-textarea-counter">{{textareaNumber}}/200
+                <text plain="true" size="mini" bindtap="addFeedback" style="margin-left:15px;color:orange;font-weight:bold;padding:0px;margin:0px;">提交反馈</text>
+                </view>
+                </form>
+            </view>
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text" wx:for="{{feedbackList}}">
+                    <view class="weui-flex" style="margin-bottom:10px">
+                    <image src="{{item.avator}}" style="width:24px;height:24px;border-radius:50%"/>
+                    <text style="height:28px;line-height:28px;margin-left:5px;color:#444;">{{item.nick}}</text></view>
+                    <view class="weui-media-box__desc">{{item.content}}
+                    <view style="margin-top:10px;color:orange;" wx:if="{{item.reply_content}}">
+                    回复:{{item.reply_content}}
+                    </view>
+                    </view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">{{item.pubtimeNice}}</view>
+                        <view bindtap="removeFeedback" data-fbid="{{item.id}}" wx:if="{{item.canDelete}}" class="weui-media-box__info__meta" style="color:orange">删除</view>   
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,73 @@
+
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-flex" style="height:{{height-36}}px;background-color:{{tagBgImage}}">
+            <scroll-view  scroll-y="true" style="width:180px;">
+                <view wx:for="{{mytags}}" wx:key="{{item.id}}" data-label="{{item.label}}" data-bgcolor="{{item.bg_color}}" data-id="{{item.id}}" bindtap="changeTag"  style="background-color:{{item.bg_color}};padding-left:20px;color:#FAFBFE;margin:20rpx 0 0 15rpx;" class="weui-flex">{{item.label}}</view>
+
+
+ <view wx:if="{{showAddTag}}" style="color:#FAFBFE;margin:20rpx 0 0 15rpx;" class="weui-flex">
+                            <view class="weui-flex__item">
+                            <input type="text" placeholder="输入名称" class="index-input-style" auto-focus="true" style="width:95%" maxlength="6" confirm-type="done" bindconfirm="doAddTagOK" bindblur="doAddTagOK"/>
+                            </view>
+                        </view>
+
+            </scroll-view>
+
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input" style="margin:2px;padding:0px;">
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" maxlength="6" value="{{label}}" style="padding-left:15px;color:#FFFFFF;background-color:{{bgcolor}}" bindinput="changeLabel" placeholder="输入标签名"/>
+                    </view>
+                </view>
+                <view class="weui-cells__title">设置背景色</view>
+                <view class="weui-cells weui-cells_after-title">
+                   
+                    <view style="display:flex;flex-wrap:wrap">
+                        <view wx:for="{{iconColor}}" style="background-color:{{item}};height:28px;width:28px;margin:4px;" bindtap="doChangeBgColor" data-color="{{item}}"></view>
+                        </view>
+
+ 
+
+                </view>
+
+                <view class="weui-cells__title">分类二维码</view>
+                <view class="weui-cells weui-cells_after-title">
+                   
+                <view class="weui-flex" style="flex-direction:column;align-items:center;">
+                    <view class="weui-flex__item">
+                        <image src="{{domain}}tagqrcode/{{tagid}}" mode="aspectFit" style="width: 120px; height: 120px;"></image>
+                    </view>
+                    <view class="weui-flex__item" style="color:gray;font-size:12px;padding:5px;">
+                    分享该二维码，与您的朋友、家人或同事一起记录这个分类下的记事记账信息
+                   </view>    
+                </view>  
+
+                </view>
+            </view>
+
+
+            
+        </view>
+ 
+       <view class="footer">
+        <view class="opt-buttons">
+            <view class="button-group" bindtap="removeTag" data-action="remove">
+                <text class="button-text">删除</text>
+            </view>
+            <view class="button-group" bindtap="doUp" data-action="up">
+                <text class="button-text">上移</text>
+            </view>
+            <view class="button-group" bindtap="doDown" data-action="down">
+                <text class="button-text">下移</text>
+            </view>
+            <view class="button-group" bindtap="doAdd" data-action="add">
+                <text class="button-text">添加</text>
+            </view>            
+        </view>
+        <button class="add-cart" bindtap="doSave" data-action="save">保存</button>
+    </view>
+
+        
+    </view>
+</view>

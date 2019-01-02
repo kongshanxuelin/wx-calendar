@@ -1,0 +1,104 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__desc">本文介绍了本小程序的主要功能和使用方法</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__h1">1.日历</view>    
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">1.1 支持农历日历</view>     
+                    <view class="weui-article__p">
+                        支持显示当前周处于当年第几周，位于日历的最后一列
+                    </view>
+                </view>
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">1.2 法定节假日</view>
+                    <view class="weui-article__p">
+                        内涵2017年法定节假日以及调休显示，我们会根据每年公布的节假日信息及时更新
+                    </view>
+                    <view class="weui-article__p">
+                        <image class="weui-article__img" src="http://h5.sumslack.com/wx/help/jiejiari.png" data-src="http://h5.sumslack.com/wx/help/jiejiari.png" 
+                        bindtap="previewImage" mode="aspectFit" style="height: 180px" />
+                    </view>
+                </view>
+            </view>
+            <view class="weui-article__h1">2.记事记账</view>    
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">2.1 支持多种记事记账模板</view>     
+                    <view class="weui-article__p">
+                        系统内置提供了记账、人情往来、加油记录等多种模板，并根据需求会逐步按需增加，只选择在添加分类的时候名称里分别包含“账”，“情”，“油”，系统会自动识别并使用相应模板
+                    </view>
+                </view>
+                <view class="weui-article__section">    
+                    <view class="weui-article__h3">2.2 支持录音图片拍照</view>
+          
+                    <view class="weui-article__h3">2.3 支持提醒</view>
+                    <view class="weui-article__p">
+                        可为添加的记事记账信息添加一条提醒，以便到点时微信及时提醒您
+                    </view>
+                    <view class="weui-article__p">
+                        <image class="weui-article__img" src="http://h5.sumslack.com/wx/help/alarm3.png" data-src="http://h5.sumslack.com/wx/help/alarm3.png" bindtap="previewImage" mode="aspectFit" style="height: 180px" />
+                        <image class="weui-article__img" src="http://h5.sumslack.com/wx/help/alarm2.png" data-src="http://h5.sumslack.com/wx/help/alarm2.png" bindtap="previewImage" mode="aspectFit" style="height: 180px" />
+                        <image class="weui-article__img" src="http://h5.sumslack.com/wx/help/alarm1.png" data-src="http://h5.sumslack.com/wx/help/alarm1.png" bindtap="previewImage" mode="aspectFit" style="height: 180px" />
+                    </view>
+                </view>
+                <view class="weui-article__section">                                 <view class="weui-article__h3">2.4 支持账本统计</view>
+                    <view class="weui-article__p">
+                        如果添加的记事薄为账本信息，系统支持按月统计收支情况
+                    </view>
+                    <view class="weui-article__p">
+                        <image class="weui-article__img" src="http://h5.sumslack.com/wx/help/stat1.png" data-src="http://h5.sumslack.com/wx/help/stat1.png" bindtap="previewImage" mode="aspectFit" style="height: 180px" />
+                        <image class="weui-article__img" src="http://h5.sumslack.com/wx/help/stat2.png" data-src="http://h5.sumslack.com/wx/help/stat2.png" bindtap="previewImage" mode="aspectFit" style="height: 180px" />
+                    </view>    
+                    <view class="weui-article__h3">2.5 支持账本分享</view>
+                    <view class="weui-article__p">
+                        任何的记事记账博都对应的一个二维码，让家人朋友通过该小程序“我的“->”扫一扫“功能，即可和家人朋友一起记录这个记事记账薄，通过“我的“->”记事记账簿管理“可查看每个二维码
+                    </view>
+                    <view class="weui-article__p">
+                        <image class="weui-article__img" src="http://h5.sumslack.com/wx/help/share1.png" data-src="http://h5.sumslack.com/wx/help/share1.png" bindtap="previewImage" mode="aspectFit" style="height: 180px" />
+                        <image class="weui-article__img" src="http://h5.sumslack.com/wx/help/share2.png" data-src="http://h5.sumslack.com/wx/help/share2.png" bindtap="previewImage" mode="aspectFit" style="height: 180px" />
+                    </view>    
+                    <view class="weui-article__h3">2.6 支持记事记账簿管理</view>
+                    <view class="weui-article__h3">2.7 制定周计划和月计划</view>
+                    <view class="weui-article__p">
+                        点击日历最右边的第几周数字可进入周计划编排页面，点击左上角“月”图标可进入月计划编排页面
+                    </view>
+                </view>
+            </view>
+            <view class="weui-article__h1">3.备忘录</view>    
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">3.1 待办事宜记录</view>     
+                    <view class="weui-article__h3">3.2 事宜归档</view>
+                </view>
+            </view>
+            <view class="weui-article__h1">4.其他</view>    
+            <view class="weui-article__section">
+                <view class="weui-article__section">
+                    <view class="weui-article__h3">4.1 手势密码进入</view>     
+                    <view class="weui-article__p">
+                        通过“我的“->”密码锁定“功能，你可以设置通过手势密码才能打开该小程序
+                    </view>
+                    <view class="weui-article__h3">4.2 换肤</view>
+                    <view class="weui-article__p">
+                        通过“我的“->”背景“功能，更改一个您喜欢的皮肤吧:)
+                    </view>
+                    <view class="weui-article__h3">4.2 编辑事件</view>
+                    <view class="weui-article__p">
+                        长按某个事件，出现“详情”菜单，可进入新页面编辑事件
+                    </view>
+                    <view class="weui-article__h3">4.4 分享事件</view>
+                    <view class="weui-article__p">
+                        长按某个事件，出现“详情”菜单，点击右上角分享按钮可将按事件分享给微信好友
+                    </view>
+                    <view class="weui-article__h3">4.5 小技巧分享</view>
+                    <view class="weui-article__p">
+                        点击中间导航栏的记事记账薄带下划线的文本可快速切换到另外账薄，点击右边统计按钮可按月统计当前账本
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>    

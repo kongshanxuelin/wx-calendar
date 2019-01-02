@@ -1,0 +1,80 @@
+@import "../template/tabbar.wxss";
+page{
+  background-color: #F2F2F2;
+}
+.page{
+  background-color: #F2F2F2;
+  padding-bottom: 70px;
+}
+.cardBack{
+  background-color: #F2F2F2;
+}
+
+.cardBtnItem {
+position:relative;
+display:block;
+-webkit-box-flex:1;
+-webkit-flex:1;
+flex:1;
+text-align:center;
+font-size:14px;
+color:#333;
+}
+
+
+.cardBtnItemRightLine{
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: lightgray;
+
+}
+
+.weui-navbar__title {
+display:flex;
+font-size:13px;
+width:auto;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+word-wrap:normal;
+align-items: center;
+justify-content: flex-start;
+}
+.justcontent-center{
+  justify-content:center
+}
+.weui-navbar__title text{
+
+overflow:hidden;
+color:#555;
+}
+
+.weui-cell{
+  background-color:#fff;
+}
+
+.name{
+  font-size:18px;
+  color:#333;
+}
+
+.title{
+  font-size:13px;
+  color:darkgray;
+}
+
+
+.weui-cells {
+  margin-top:2px;
+  background-color:#FFFFFF;
+  line-height:1.41176471;
+  font-size:17px;
+}
+
+.weui-loadmore {
+  width:85%;
+  margin:10px auto;
+  line-height:1.6em;
+  font-size:14px;
+  text-align:center;
+}

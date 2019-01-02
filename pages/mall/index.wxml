@@ -1,0 +1,103 @@
+<view class="page" style="padding:10px;">
+    <view class="page__hd">
+        <!-- 
+        <view wx:for="{{mall.cate}}" wx:key="{{type_field}}">
+            <view style="color:orange;font-weight:bold;">{{item.type}}</view>
+            <view style="display:flex;flex-wrap:wrap">
+              <text wx:for="{{item.list}}" style="margin-right:10px;" wx:key="id">{{item.name}}</text>
+            </view>
+        </view>
+        -->
+        <view class="page__title">免费开小程序微店</view>
+        <view class="page__desc">您必须拥有正规的实体店，在微信中开通支付，并缴费好小程序年费（微信收取），并填写好以下申请表即可开通</view>
+    </view>
+    <view class="page__bd">
+      <!--
+      <view class="goods-container">
+          <view class="goods-box" wx:for-items="{{mall.goods}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
+            <view class="img-box">
+                <image  src="../../images/nopic.jpg" class="image"/>
+                
+            </view>
+            <view class="goods-title">{{item.name + '' + item.brand + '' + item.specification}}</view>
+            <view class="goods-price">
+                <text wx:for="{{item.prices}}" wx:key="*this">{{item.d + '/' + item.good_price + '元 '}} </text>
+            </view>
+            <view class="goods-title" style="color:orange;">立即购买</view>
+          </view>
+      </view>
+      -->
+      <view class="weui-panel weui-panel_access">
+           
+            <view class="weui-panel__bd">
+              <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">微店名</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" data-name="title" bindinput="bindInput" placeholder="请取一个响亮点的微店名"/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">联系方式</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" data-name="tele" bindinput="bindInput" placeholder="手机号或邮箱，方便沟通"/>
+                    </view>
+                </view>
+              </view>
+
+              <view class="weui-cells__title">微信appid</view>
+              <view class="weui-cells weui-cells_after-title">
+                  <view class="weui-cell weui-cell_input">
+                      <view class="weui-cell__bd">
+                          <input class="weui-input" data-name="appid" bindinput="bindInput" placeholder="小程序管理员后台可获取" />
+                      </view>
+                  </view>
+              </view>
+              <view class="weui-cells__title">微信secret</view>
+              <view class="weui-cells weui-cells_after-title">
+                  <view class="weui-cell weui-cell_input">
+                      <view class="weui-cell__bd">
+                          <input class="weui-input" data-name="secret" bindinput="bindInput" placeholder="小程序管理员后台可获取" />
+                      </view>
+                  </view>
+              </view>
+              <view class="weui-cells__title">微信支付商户号</view>
+              <view class="weui-cells weui-cells_after-title">
+                  <view class="weui-cell weui-cell_input">
+                      <view class="weui-cell__bd">
+                          <input class="weui-input" data-name="mchid" bindinput="bindInput" placeholder="小程序管理员后台可获取" />
+                      </view>
+                  </view>
+              </view>
+              <view class="weui-cells__title">微信支付商户秘钥</view>
+              <view class="weui-cells weui-cells_after-title">
+                  <view class="weui-cell weui-cell_input">
+                      <view class="weui-cell__bd">
+                          <input class="weui-input" data-name="mchsec" bindinput="bindInput" placeholder="小程序管理员后台可获取" />
+                      </view>
+                  </view>
+              </view>
+
+            
+
+            </view>
+
+           
+          <label class="weui-agree" for="weuiAgree">
+              <view class="weui-agree__text">
+                  如对微信小程序注册开通流程不熟悉的，请咨询微信客服~
+              </view>
+          </label>
+        
+
+        <view class="weui-btn-area">
+            <button bindtap="doOK" class="weui-btn" type="primary">免费申请开通微店</button>
+        </view>
+
+      </view>      
+    </view>
+</view>    

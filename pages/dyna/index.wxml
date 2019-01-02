@@ -1,0 +1,171 @@
+<import src="../../components/button/button.wxml"/>
+<template is="button" data="{{ ...$wux.button.br }}"/>
+<view class="quan-box" bindtap="tapBody">
+
+  <view class="quan-top-right" longtap="bindAdd" bindtap="scrollHandle" 
+      animation="{{animationData1}}" >
+    <image class="quan-baseimg" 
+    src="../../images/camera.png" 
+    mode="scaleToFill" 
+    catchtap="bindAdd"></image>
+  </view>
+
+  <view class="quan-bg">
+      <image class="quan-baseimg" src="../../images/bg.jpg" mode="scaleToFill"></image>
+  </view>
+  <!--大头像-->
+  <view class="quan-headimg">
+      <image class="quan-baseimg" src="{{userInfo['avatarUrl']}}" mode="scaleToFill"></image>
+  </view>
+  <!--底部昵称-->
+  <view class="quan-nickname">
+    <text>{{userInfo['nickName']}}</text>
+  </view>
+  <!--占位行-->
+  <view class="quan-lie"></view>
+
+  <view class="quan-content" wx:key="{{id}}" wx:for="{{page.result}}" wx:for-index="k">
+    <!--头像-->
+    <view class="quan-head">  
+      <image wx:if="{{page.result[k].cate == '微店'}}" class="quan-baseimg"  src="../../images/mall.png" mode="scaleToFill"></image>
+      <image wx:else class="quan-baseimg"  src="{{page.result[k].avatar}}" mode="scaleToFill"></image>
+    </view>
+    <!--昵称-->
+    <view wx:if="{{page.result[k].cate == '微店'}}" class="quan-wz" style="display:flex;align-items:center;">
+    <text>{{page.result[k].mall.title}}</text>
+    <image  src="../../images/dian.png" style="width:28px;height:28px;"></image>
+    <image  src="../../images/zheng.png" style="width:28px;height:28px;"></image>
+    </view>
+    <text wx:else class="quan-wz">{{page.result[k].nick}}</text>
+    <!--内容-->
+    <view class="quan-desc">
+    <block wx:if="{{page.result[k].cate == '微店'}}">
+      <text>公司地址：{{page.result[k].mall.addr}}
+      统一社会信用代码：{{page.result[k].mall.creditno}}
+      </text>
+      <view>
+      {{page.result[k].mall.d}}
+      <view style="margin-top:5px;color:orange">{{page.result[k].content}}</view>
+      </view>      
+    </block>
+    <block wx:else>
+      <text style="color:green;font-weight:bold">{{page.result[k].cate}} {{page.result[k].cate == '商品' ? (' 单价：' + page.result[k].price + '元'):""}}  {{page.result[k].cate == '商品' ? (' 配送范围：' + page.result[k].scope + ''):""}}</text>
+      <view>{{page.result[k].content}}</view>
+    </block>
+    </view>
+
+    <!--显示上传图片-->
+      
+    <block wx:if="{{page.result[k].imageList.length == 1}}">
+        <view class="quan-images-wrapper">
+            <view class="quan-images-list">
+              <block wx:for="{{page.result[k].imageList}}" wx:for-item="image">
+                <image src="{{image.spath}}" class="quan-images-image" data-src="{{image.path}}"
+                  data-count="{{page.result[k].imageList}}" bindtap="previewImage"></image>
+              </block>
+            </view>
+      </view>
+    </block>
+
+    <block wx:elif="{{page.result[k].imageList.length >= 2}}">
+      <view class="quan-images-wrapper">
+          <view class="quan-images-list">
+            <block wx:for="{{page.result[k].imageList}}" wx:for-item="image">
+              <image src="{{image.spath}}" class="quan-images-image" data-src="{{image.path}}" 
+              data-count="{{page.result[k].imageList}}" bindtap="previewImage"></image>
+            </block>
+          </view>
+      </view>
+    </block>
+   
+    <!--显示地址-->
+    <block wx:if="{{page.result[k].addr != 'undefined'}}">
+        <text class="quan-address">{{page.result[k].addr}}</text>
+    </block>
+
+    <!--显示发布时间-->
+    <text class="quan-time">{{page.result[k].niceTime}}</text> 
+    <!--显示删除-->
+    <block wx:if="{{page.result[k].showDelete}}">
+        <text class="quan-dele"  bindtap="bindDele" data-id="{{page.result[k].id}}" data-deleid="{{page.result[k].id}}">删除</text>
+
+    </block>
+    <text wx:if="{{page.result[k].cate == '商品'}}" class="quan-dele2"  bindtap="bindBook" data-id="{{page.result[k].id}}">下单购买</text>
+    <text wx:if="{{page.result[k].cate == '微店'}}" class="quan-dele2"  bindtap="bindGoMall" data-id="{{page.result[k].mall.id}}">进入微店</text>
+    <!--显示操作小图标-->
+    <view class="quan-biao" bindtap="bindCaoZuo"  data-id="{{page.result[k].id}}">
+      <image class="quan-baseimg" src="/images/biao.png"></image>      
+    </view>
+
+    <!--显示点赞-->
+    <block wx:if="{{page.result[k].likes && page.result[k].likes.length>0}}">
+        <view class="quan-dianzan-box">
+          <view class="quan-dianzan-biao">
+            <image class="quan-baseimg" src="/images/zan.png" mode="aspectFit"></image>
+          </view>
+
+          <view class="quan-dianzan-text">
+          <block wx:for="{{page.result[k].likes}}">
+          {{item.nick}}
+          </block>
+          </view>
+        </view>
+    </block>
+    <!--显示评论-->
+    <!--如果朋友圈下的评论不等于空 则显示当前朋友圈的评论-->
+    <block wx:if="{{page.result[k].comments && page.result[k].comments.length>0 }}">
+      <view class="quan-pinglun-box" scroll-y>
+        <!--循环评论-->
+        <block wx:for="{{page.result[k].comments}}" wx:for-item="comm" wx:for-index="kk">
+            <!--如果pid等于null证明是发布的评论 否则是回复的评论-->
+            <block wx:if="{{comm.reply_uid && comm.reply_uid!=''}}">
+                <view class="quan-pinglun-one" 
+              bindtap="bindPingLunB" 
+              data-fid="{{page.result[k].id}}" 
+              data-id="{{comm.id}}"
+              data-create_uid="{{comm.create_uid}}">
+                    <text class="quan-pinglun-nickname">{{comm.reply_nick}}
+                    <text style="color:#000;">回复</text>
+                    {{comm.create_nick}}：</text>
+                    <text class="quan-pinglun-content">{{comm.comment_content}}</text>
+                </view>
+            </block>
+
+            <block wx:else>
+                <view class="quan-pinglun-one" 
+                bindtap="bindPingLunB" 
+                data-fid="{{page.result[k].id}}" 
+                data-id="{{comm.id}}"
+                data-create_uid="{{comm.create_uid}}">
+                    <text class="quan-pinglun-nickname">{{comm.create_nick}}：</text>
+                    <text class="quan-pinglun-content">{{comm.comment_content}}</text>
+                </view>
+            </block>
+            
+        </block>
+      </view>
+    </block>
+
+  </view>
+
+    <!--点赞评论标签-->
+    <view class="quan-caozuo" style="top:{{cz_top}}px;right:{{cz_right}}rpx;padding-bottom:4px" 
+    animation="{{animationData}}">
+        <text class="quan-dianzan" bindtap="bindDianZan">{{zan}}</text> 
+        <text class="quan-pinglun" bindtap="bindPingLunA">评论</text>
+    </view>
+
+    <view  hidden="{{!showComment}}" class="quan-commentbox">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input focus="{{commentFocus}}" class="weui-input" 
+                    placeholder="{{commentInput}}" confirm-type="done" 
+                    bindblur="bindAddCommentBlur"
+                    bindconfirm="bindAddComment" value="{{commentContent}}"/>
+                </view>
+            </view>
+        </view>    
+    </view>
+
+</view>

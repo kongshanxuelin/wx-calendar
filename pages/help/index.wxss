@@ -1,0 +1,12 @@
+page{
+    background-color: #FFFFFF;
+    margin:10rpx;
+}
+.weui-article__h1{
+    color:blueviolet;
+    font-weight: bold;
+}
+.weui-article__h3{
+    color:brown;
+    font-weight: bold;
+}

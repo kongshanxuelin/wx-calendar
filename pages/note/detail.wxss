@@ -1,0 +1,78 @@
+.right{
+  margin: 0rpx 15rpx;
+  background: #ffffff;
+  align-items: center;
+  justify-content: center;
+  align-content: space-between;
+  margin-top:10px;
+
+  flex-direction:row-reverse;
+}
+
+.item-right{
+	text-align: right;
+}
+
+.item-left-font{
+
+  padding-right:10rpx;
+  color: darkgrey;
+  font-size: 14px;
+}
+
+.item-right-font{
+  color: darkorange;
+  font-size: 14px;
+}
+.m50{
+	padding-left:80rpx;
+}
+.weui-cells{
+	border: 0px;
+	line-height: 32px;
+	margin-bottom: 10rpx;
+}
+
+.weui-cells::before{
+	border: 0px;
+}
+
+
+.images-wrapper {
+  padding: 20rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  color:darkgray;
+}
+.images-wrapper-text {
+  font-size: 18rpx;
+}
+.images-list {
+  display: flex;
+  margin-top: 20rpx;
+  flex-wrap: wrap;
+}
+.images-image {
+  width: 148rpx;
+  height: 148rpx;
+  margin: 5rpx;
+}
+.shareFriend{
+	background:url('http://h5.sumslack.com/wx/share.png') no-repeat left center;
+	height:32px;
+	margin-right:20rpx;
+}
+.home{
+	background:url('http://h5.sumslack.com/wx/home.png') no-repeat left center;
+	height:32px;
+	margin-right:20rpx;
+}
+.save{
+	background:url('http://h5.sumslack.com/wx/edit.png') no-repeat left center;
+	height:32px;
+}
+
+.ok{
+	background:url('http://h5.sumslack.com/wx/ok.png') no-repeat left center;
+	height:32px;
+}

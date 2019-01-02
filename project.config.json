@@ -1,0 +1,43 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.3",
+	"appid": "wxac3f2ac1a0efa13e",
+	"projectname": "wxnote",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "二维码识别",
+					"pathName": "pages/index/index",
+					"query": "sc.paper.id=1.paper",
+					"scene": "1012"
+				},
+				{
+					"id": 1,
+					"name": "二维码识别",
+					"pathName": "pages/start/index",
+					"query": "scene=sc.paper.id%3dnzog60cwlc.undefined",
+					"scene": "1048"
+				}
+			]
+		}
+	}
+}

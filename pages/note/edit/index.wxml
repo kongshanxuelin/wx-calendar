@@ -1,0 +1,45 @@
+<view class="weui-flex bottom-menu-bar" bindtap="addTODO">
+	<view class="bottom-menu-bar-item" hover-class="bottom-menu-bar-item-hover">
+		<image src="img/add.png"></image>
+	</view>
+</view>
+<view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">备忘录</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已归档</view>  
+</view>  
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">  
+    <swiper-item>  
+      <view class="weui-loadmore weui-loadmore_line" wx:if="{{list_doing.length==0}}">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+        </view>
+
+					<view class="weui-flex todolist" wx:key="{{item.id}}" wx:for="{{list_doing}}">
+					<view style="width:auto;flex-grow: 1;" class="weui-flex__item test-item">
+						<view class="test-item-b">
+							<checkbox-group bindchange="doingChange">
+								<label class="checkbox">
+								<checkbox value="{{item.id}}"/>{{item.content}}
+								</label>
+							</checkbox-group>
+							</view>
+					</view>
+					<view class="weui-flex__item test-item" style="width:24px;flex-grow: 0;">
+						<image src="../../images/rightmenu.png" style="width:24px;height:24px"  data-id="{{item.id}}" bindtap="doDoingMoreAction"></image>
+					</view>
+				</view>
+
+				<view wx:if="{{isInputTODO}}" style="margin:30rpx" class="test-item">
+					<textarea auto-focus maxlength="500"  class="weui-textarea" bindconfirm="doFinishTyping" placeholder="输入备忘，限500字" bindblur="doFinishTypingBlur" style="height: 3.3em" />
+				</view>
+    </swiper-item>  
+    <swiper-item>  
+      
+<view class="weui-loadmore weui-loadmore_line" wx:if="{{list_finished.length==0}}">
+							<view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+						</view>
+
+						<view class="test-item todolist" bindlongtap="doFinishMoreAction" data-id="{{item.id}}" wx:for="{{list_finished}}" wx:key="{{item.id}}">
+							<view class="test-item-b">{{item.content}}</view>
+						</view>
+    </swiper-item>  
+</swiper>  

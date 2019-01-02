@@ -1,0 +1,403 @@
+/* pages/calendar/calendar.wxss */
+qqpage,.qqpage {
+  font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'Droid Sans Fallback', 'Microsoft Yahei', sans-serif;
+}
+.qqpage-bottom{
+  height: 100%;
+  width: 132px;
+  position: fixed;
+  z-index: 0;  
+}
+.qqpage-content{
+    
+}
+.qqpage-top{
+  height: 100%;
+  position: fixed;
+  width: 750rpx;
+  z-index: 10;
+  transition: All 0.4s ease;
+  background-color:#FFFFFF;
+  -webkit-transition: All 0.4s ease;
+}
+.qqc-state1{
+  transform: rotate(0deg) scale(1) translate(33.33%,0%);
+  -webkit-transform: rotate(0deg) scale(1) translate(33.33%,0%);
+}
+/*分隔符*/
+.gap-1,.gap-2{
+    width:100%;
+    height:1px;
+    background:rgb(238, 238, 238);
+    margin:5rpx auto;
+}
+.top {
+
+  display: flex;
+  height:36px;
+
+}
+.top_text {
+  flex:1;
+  margin-left:20rpx;
+}
+.top_right {
+  float:right;
+  text-align: right;
+  font-size: 15px;
+}
+.menu-img{
+    width:32px;
+    height:32px;
+    border-radius: 50%;
+    line-height: 32px;
+}
+.calendar{
+    
+}
+/*任务列表样式*/
+.flex-wrp{
+  display: flex;
+}
+.tip-item{
+  margin: 0 15rpx;
+  background: #ffffff;
+  align-items: center;
+  justify-content: center;
+  align-content: space-between;
+  
+  height:28px;
+  line-height: 28px;
+  flex-direction:row-reverse;
+}
+.tip-item text{
+    font-size:12px;
+}
+
+.notify-item{
+  margin: 0 15rpx;
+  background: #ffffff;
+  padding: 10rpx;
+  border-bottom: solid 1px #ebebeb;
+}
+.notify-item  image{
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 64rpx;
+}
+.notify-item .avatar{
+    margin-right: 20rpx;
+}
+.notify-item .notify-content{
+  text-align: left;
+}
+
+.notify-item .notify-content .notify-source{
+  line-height: 48rpx;
+  height:48rpx;
+  display: flex;
+}
+.notify-item .notify-content .notify-source text{
+  color: #101010;
+  font-size: 12px;
+
+  margin-left:5rpx;
+}
+
+.notify-item .notify-content .notify-source image{
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 48rpx;
+}
+.notify-item .notify-content .notify-title{
+  color: #AFAFAF;
+  line-height: 34rpx;
+  font-size: 12px;
+}
+/*左上角备忘录*/
+.memo{
+    border-radius: 50%;
+  text-align: center;
+  background-image: url("img/tool_memo.png");
+  background-repeat: no-repeat;
+}
+
+.flex-view-item{
+    font-size:14px;
+    text-align: center; 
+    line-height: 14px;
+}
+.flex-view-item2{
+    font-size:10px;
+    text-align: center;
+    line-height: 10px;
+}
+
+.top-handle {
+    height: 28px;
+}
+.prev {
+    height: 28px;    
+}
+.prev image{
+    width:24px;
+    height:24px;
+    line-height: 24px;
+    display:block;
+    border-radius: 50%;
+}
+.next {
+    height: 28px;
+}
+.next image{
+    width:24px;
+    height:24px;
+    line-height: 24px;
+    display:block;
+    border-radius: 50%;
+}
+.nongli {
+    font-size: 12px;
+}
+.prev-handle {
+    width: 24px;
+    height: 100%;
+}
+.next-handle {
+    width: 24px;
+    height: 100%;
+}
+.date-area {
+    width: 50%;
+    height: 28px;
+    text-align: center;
+    font-size:14px;
+}
+.weeks {
+    height: 50rpx;
+    line-height: 50rpx;
+    opacity: 0.8
+}
+.week {
+    text-align: center;
+    color:#000000;
+    font-weight: bold;
+}
+.days {
+    margin-left:10rpx;
+}
+.grid {
+    width: 93rpx;
+    
+}
+.day {
+    width: 30px;
+    height: 30px;
+    color: #505050;
+    font-size: 26rpx;
+    padding:10rpx;
+}
+.day-reddot{
+    background:url('http://h5.sumslack.com/wx/dot.png') no-repeat center bottom;
+}
+.white-color {
+    background-color: #ffffff
+}
+.weekend-color {
+    
+    color:#ff629a;
+}
+.weekend2-color {
+    color:darkgreen;
+    font-weight: bold;
+}
+.border-radius {
+    border-radius: 50%;
+    position: relative;
+    left: 0;
+    top: 0;
+    color: #fff;
+}
+.day-bg-today {
+    background-color: darkcyan;
+}
+
+.day-bg-tasks {
+    background-color: lightgray;
+    color:#000;
+}
+
+.right-triangle::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: 15rpx solid transparent;
+    border-left-color: #ff629a;
+    position: absolute;
+    right: -22rpx;
+    top: 18rpx;
+}
+.left-triangle::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: 15rpx solid transparent;
+    border-right-color: #ff629a;
+    position: absolute;
+    left: -22rpx;
+    top: 18rpx;
+}
+.tips {
+    text-align: center;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}
+.types {
+    background-color: #ffedf4;
+    height: 50rpx;
+}
+.type-dot {
+    width: 25rpx;
+    height: 25rpx;
+    border-radius: 50%;
+    margin-right: 10rpx;
+}
+.type-dot-ymq {
+    color:rgb(255, 124, 160);
+    background-color: rgb(255, 124, 160);
+}
+.type-dot-ycq {
+    color: rgb(255, 200, 202);
+    background-color: rgb(255, 200, 202);
+}
+.type-dot-aqq {
+    color: rgb(118, 191, 92);
+    background-color: rgb(118, 191, 92);
+}
+.type-dot-yyq {
+    color: rgb(255, 182, 236);
+    background-color: rgb(255, 182, 236);
+}
+.type-dot-plr {
+    color: rgb(211, 189, 215);
+    background-color: rgb(211, 189, 215);
+}
+.types-desc {
+    padding: 0 20rpx;
+}
+.type-name {
+    margin-top: 50rpx;
+    margin-bottom: 30rpx;
+}
+.type-desc {
+    padding: 0 35rpx;
+    line-height: 38rpx;
+}
+
+
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  /*display: flex;
+  flex-direction: column;
+  justify-content: center;*/
+}
+.btn-line{
+  width: 1px;
+  background-color: #A5A5A5;
+}
+.btn-view{
+  width: 100%;
+  display: flex;
+  height: 40px;
+  flex-direction: row;
+  justify-content: space-around
+}
+.line-top{
+   width: 100%;
+   height: 1px;
+   background-color: #A5A5A5;
+}
+.form-btn{
+  width: 49%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dialog-title{
+  margin-top: 5px;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:32rpx;
+}
+.index-input-style{
+    float:left;
+  height: 64rpx;
+  width:70%;
+}
+.index-input-view{
+  height: 64rpx;
+  width:100%;
+  border-bottom: 1px #A5A5A5 solid;
+  margin: 5px;
+  display:flex;
+  flex-wrap: nowrap;
+}
+
+.index-input-view image{
+    width:58rpx;
+    height:58rpx;
+    border-radius: 50%;
+    line-height: 50rpx;
+}
+
+
+.images-wrapper {
+  padding: 20rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  color:darkgray;
+}
+.images-wrapper-text {
+  font-size: 18rpx;
+}
+.images-list {
+  display: flex;
+  margin-top: 20rpx;
+  flex-wrap: wrap;
+}
+.images-image {
+  width: 148rpx;
+  height: 148rpx;
+  margin: 5rpx;
+}
+
+.ban{
+    border-radius:0;
+    background:url('http://h5.sumslack.com/wx/ban.png') no-repeat left top;
+}
+.jia{
+    border-radius:0;
+    background:url('http://h5.sumslack.com/wx/xiu.png') no-repeat left top;
+}

@@ -1,0 +1,48 @@
+.swiper-tab{  
+    width: 100%;   
+    line-height: 80rpx;
+	text-align: center;
+}  
+.swiper-tab-list{  
+	font-size: 30rpx;  
+    display: inline-block;  
+    width: 33.33%;  
+    color: #777777;  
+}  
+.on{ 
+	color: #da7c0c;  
+    border-bottom: 5rpx solid #da7c0c;
+}  
+.swiper-box{ 
+	display: block; 
+	height: 100%; 
+	width: 100%; 
+	overflow: hidden; 
+}  
+.todolist{
+	margin-left: 25rpx;
+	margin-right: 30rpx;
+}
+.test-item{
+	border-bottom: 1rpx solid #ddd;
+	padding: 20rpx 0;
+	color:black;
+}
+.test-item-b{
+	font-size: 30rpx;
+	color:black;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+}
+
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.log-item {
+  margin: 10rpx;
+}

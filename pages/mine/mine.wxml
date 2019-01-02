@@ -1,0 +1,149 @@
+<view class="container more">
+  <view class="user flex-wrp" style="{{theme}}">
+    <view class="avatar flex-item">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+    <view class="user-info flex-item">
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="edit"> V{{version}}:{{desc}}</text>
+    </view>
+  </view>
+
+  <view class="my" >
+    <view class="my-item flex-wrp" ontap="doTagMgr">
+      <view class="myitem-icon flex-item" >
+        <image src="img/tag.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>记事记账簿管理</text>
+        <text style="display:block;margin-top:10rpx;color:gray;font-size:12px;">特殊记事记账簿可录入特定的额外信息</text>
+      </view>
+    </view>
+
+
+  </view>
+
+  <view class="my" >
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="img/mima.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text style="float:left;line-height:20px;">密码锁定</text>
+        <view style="float:right;padding-right:20rpx">
+
+          <switch checked="{{enablePwd}}" bindchange="switchPasswordEnable"/>
+        
+       </view>
+
+      </view>
+    </view>
+
+    <view class="my-item flex-wrp" bindtap="doScan">
+      <view class="myitem-icon flex-item" >
+        <image src="img/scan.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>扫一扫</text>
+        <text style="display:block;margin-top:10rpx;color:gray;font-size:12px;">扫描二维码和家人朋友一起记录记事记账簿</text>
+      </view>
+    </view>
+
+    <!-- 
+    <view class="my-item flex-wrp" bindtap="doBindEmail">
+      <view class="myitem-icon flex-item" >
+        <image src="img/Email.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>绑定邮箱/手机</text>
+        <text style="display:block;margin-top:10rpx;color:gray;font-size:12px;">绑定手机和邮箱以便我们更好的为您服务</text>
+      </view>
+    </view>
+   -->
+  </view>
+
+
+  <view class="my" >
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="img/bg.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>背景</text>
+        <view class="weui-flex" style="margin-top:4px;">
+            <view class="weui-flex__item" style="background:url(http://h5.sumslack.com/wx/bg.png) repeat-x fixed top" data-bg="pic" bindtap="changeBg"></view>
+            <view class="weui-flex__item" style="height:28px;background-color:#2CA8E8" data-bg="#2CA8E8" bindtap="changeBg"></view>
+            <view class="weui-flex__item" style="height:28px;background-color:#2A3038" data-bg="#2A3038" bindtap="changeBg"></view>
+            <view class="weui-flex__item" style="height:28px;background-color:#664321" data-bg="#664321" bindtap="changeBg"></view>
+            <view class="weui-flex__item" style="height:28px;background-color:#EA5B0E" data-bg="#EA5B0E" bindtap="changeBg"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="my" >
+
+   <view class="my-item flex-wrp" ontap="navOrder">
+      <view class="myitem-icon flex-item" >
+        <image src="../../images/order.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>我的订单</text>
+        <text style="display:block;margin-top:10rpx;color:gray;font-size:12px;">本平台购买的商品订单都在这~</text>
+      </view>
+    </view>
+
+
+   <view class="my-item flex-wrp" ontap="doJuanMe">
+      <view class="myitem-icon flex-item" >
+        <image src="img/donate.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>支持我们</text>
+        <text style="display:block;margin-top:10rpx;color:gray;font-size:12px;">如果小程序对你有帮助，请支持我们~</text>
+      </view>
+    </view>
+
+    <view class="my-item flex-wrp" ontap="doJuan">
+      <view class="myitem-icon flex-item" >
+        <image src="img/thanks.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>感谢名单</text>
+        <text style="display:block;margin-top:10rpx;color:gray;font-size:12px;">点滴心意，铭记在心~</text>
+      </view>
+    </view>
+     <view class="my-item flex-wrp" ontap="doFeedback">
+      <view class="myitem-icon flex-item" >
+        <image src="img/feedback.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>意见反馈</text>
+        <text style="display:block;margin-top:10rpx;color:gray;font-size:12px;">被采纳的需求我们会第一时间实现哦~</text>
+      </view>
+    </view>
+  </view>
+
+    <view class="my" >
+    <view class="my-item flex-wrp" ontap="doClearCache">
+      <view class="myitem-icon flex-item" >
+        <image src="img/clear.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>清空缓存</text>
+        <text style="display:block;margin-top:10rpx;color:gray;font-size:12px;">缓存大小：{{cacheSize}} MB / {{cacheLimitSize}} MB</text>
+      </view>
+    </view>
+  </view>
+
+  <!--
+  <view class="my" bindtap="editEmail">
+    <view class="my-item flex-wrp">
+      <view class="myitem-name flex-item" style="text-align:center">
+        <text>退出登录</text>
+      </view>
+    </view>
+  </view>
+  -->
+</view>

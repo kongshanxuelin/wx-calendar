@@ -1,0 +1,29 @@
+.data-rb{
+  font-size:10px;
+  text-align: right;
+  padding-right:5px;
+  color:darkgray;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+contact-button {
+display:inline-block;
+line-height:0;
+z-index:9999999999;
+opacity:0;
+}
+
+.btn-text{
+  height:20px;
+  line-height: 20px;
+  color:orange;
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+.box-space{
+  margin-top:5px;
+  margin-right: 10px;
+}

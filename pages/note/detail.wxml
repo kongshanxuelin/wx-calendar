@@ -1,0 +1,111 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page__hd">
+		<view class="weui-flex right">
+			<view class="weui-flex__item item-right">
+			<button class="home" size="mini"  bindtap="goHome"></button>
+			<button class="shareFriend" size="mini" open-type="share"></button>
+			<button class="{{mode=='view'?'save':'ok'}}" size="mini" bindtap="goEdit"></button>
+			</view>
+		</view>
+    </view>
+    <view class="page__bd" style="margin-top:10rpx;">
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd tip">
+					<view class="weui-label item-left-font">来自：</view>
+				</view>
+				<view class="weui-cell__bd item-right-font">
+					{{task.mytag.label?task.mytag.label:"记事"}}
+				</view>
+			</view>
+		</view>	
+
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd tip">
+					<view class="weui-label item-left-font">发布者：</view>
+				</view>
+				<view class="weui-cell__bd item-right-font">
+					{{task.onn}}
+				</view>
+			</view>
+		</view>	
+
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd tip">
+					<view class="weui-label item-left-font">发布时间：</view>
+				</view>
+				<view class="weui-cell__bd item-right-font">
+					{{task.dt}}  {{task.time}}
+				</view>
+			</view>
+		</view>	
+
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd tip">
+					<view class="weui-label item-left-font">提醒时间：</view>
+				</view>
+				<view wx:if="{{mode=='view'}}" class="weui-cell__bd item-right-font">
+					{{task.alarm_freq_starttime!=""?task.alarm_freq_starttime:"未设置"}}
+				</view>
+        <view wx:if="{{mode=='edit33'}}" class="weui-cell__bd item-right-font">
+					 <picker class="weui-btn" mode="date" value="{{alertDate}}" bindchange="bindAlertDateChange">
+            <button size="mini" class="weui-btn mini-btn" plain="true" type="default">{{task.alarm_freq_starttime.substring(1,3)}}</button>
+            </picker>
+             <picker class="weui-btn" mode="time" value="{{alertTime}}" bindchange="bindAlertTimeChange">
+             <button size="mini" class="weui-btn mini-btn" plain="true" type="default">{{task.alarm_freq_starttime}}</button>
+             </picker>
+				</view>
+			</view>
+		</view>	
+
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd tip">
+					<view class="weui-label item-left-font">描述：</view>
+				</view>
+				<view class="weui-cell__bd item-right-font">
+					<text wx:if="{{mode=='view'}}">{{task.task_content}}</text>
+			<textarea wx:if="{{mode=='edit'}}" bindinput="changeContent" class="weui-textarea" style="height: 3.3em" value="{{task.task_content}}" />
+
+				</view>
+			</view>
+		</view>	
+
+ 		<view class="weui-cells__title">表单信息</view>
+        <view class="weui-cells weui-cells_after-title m50">
+			<view  wx:for="{{task.props}}" wx:for-item="prop" wx:key="{{prop.id}}" class="weui-flex">
+				<view class="weui-flex__item item-left-font">{{prop.prop.label}}
+				</view>
+				<view class="weui-flex__item item-right-font" wx:if="{{mode=='view'}}">
+					{{prop.v_label}} 
+					{{prop.prop.labelSuffix}}
+				</view>
+				<view class="weui-flex__item item-right-font" wx:if="{{mode=='edit'}}">
+					<input bindinput="propChange" data-propId="{{prop.prop.id}}" wx:if="{{prop.prop.component == 'text'}}" class="weui-input" maxlength="{{prop.prop.maxlen}}" type="{{prop.prop.input_type}}" placeholder="" value="{{prop.v_label}}"/>
+					<picker bindchange="propChange" data-array="{{prop.prop.listCompoenet}}" data-propId="{{prop.prop.id}}" wx:if="{{prop.prop.component == 'select'}}" range-key="v" index="0" range="{{prop.prop.listCompoenet}}">
+					<view class="picker">
+					{{prop.prop.listCompoenet[propIndexes[prop.prop.id]].v}}
+					</view>
+					</picker>
+				</view>
+
+				</view>
+        </view>
+
+		<view class="weui-cells__title" wx:if="{{task.atta}}">附件列表</view>
+		<view class="images-wrapper" wx:if="{{task.atta}}">
+			<!--<text class="images-text">图片/语音</text>-->
+			<view class="images-list" style="padding:0px;margin:0px;">
+				<block wx:for-items="{{task.atta}}" wx:for-item="atta">
+				<image wx:if="{{atta.spath!=='audio'}}" src="{{uploadPath}}{{atta.spath}}" class="images-image" data-src="{{uploadPath}}{{atta.path}}" bindtap="previewImageTask" style="width:148rpx;height:148rpx;border-radius: 0;"></image>
+				<button class="weui-btn" size="mini" type="primary" data-url="{{uploadPath}}{{atta.path}}" bindtap="playAudio" wx:if="{{atta.spath=='audio'}}">播放录音</button>
+				</block>
+			</view>
+		</view>
+		
+				
+	</view>		
+</view>

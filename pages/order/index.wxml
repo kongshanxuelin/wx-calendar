@@ -1,0 +1,36 @@
+<view class="scroll-list">
+    <view class="weui-form-preview" wx:if="{{ orders.length>0 }}" wx:for="{{ orders }}" wx:key="" data-id="{{ item._id }}">
+        <view class="weui-form-preview__hd">
+            <view class="weui-flex">
+                <text>{{item.log.content}}</text>
+            </view>
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">订单总价</view>
+                <view class="weui-form-preview__value_in-hd">¥ {{ item.order.amount * item.order.price }}</view>
+            </view>
+        </view>
+        <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">送往{{ item.order.recieveName + ' - ' +  item.order.recieveTel +'' }}：{{ item.order.recieveAddr }}</view>
+                <view class="weui-form-preview__value">x{{ item.order.amount }} ¥ {{ item.order.price }}</view>
+            </view>
+        </view>
+        <view class="weui-form-preview__ft">
+            <navigator url="/pages/card/view/index?touid={{item.log.uid}}" class="weui-form-preview__btn weui-form-preview__btn_default"
+               hover-class="weui-form-preview__btn_active">联系商家</navigator>
+            <view style="color:orange" bindtap="bindPay" wx:if="{{item.order.status == '1'}}" 
+                data-orderid="{{item.order.id}}" 
+                data-amount="{{item.order.amount}}"
+                data-price="{{item.order.price}}"
+                class="weui-form-preview__btn weui-form-preview__btn_primary" 
+                hover-class="weui-form-preview__btn_active">完成付款</view>
+            <view style="color:orange" bindtap="bindConfirmOrder" 
+                wx:if="{{item.order.status == '2'}}" 
+                data-orderid="{{item.order.id}}" 
+                class="weui-form-preview__btn weui-form-preview__btn_primary" 
+                hover-class="weui-form-preview__btn_active">
+            确认收货</view>
+            <view wx:if="{{item.order.status == '3'}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">订单完成</view>
+        </view>
+    </view>
+</view>

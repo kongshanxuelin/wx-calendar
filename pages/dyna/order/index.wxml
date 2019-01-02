@@ -1,0 +1,67 @@
+<view class="address">
+    <view class="weui-panel">
+        <view class="weui-panel__bd">
+            <view class="weui-cells__title">商品描述</view>
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell">
+                {{good.content}}
+                </view>
+                <view style="width:700rpx;text-align:right;padding-right:5px;">
+                单价: <text style="color:orange">{{good.price}}</text> 元
+                </view>
+            </view>
+            <view class="weui-cells__title">送货信息填写</view>
+            <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">姓名</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="请输入您姓名" value="{{rn}}" bindinput="bindName"/>
+                  </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">联系电话</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="请输入您的联系电话" value="{{rt}}" bindinput="bindTel"/>
+                  </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">送货地址  <image bindtap="chooseLoc" src="/images/address.png" style="width:25px;height:25px;margin-right: 5px;vertical-align: middle;"></image></view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="请输入送货地址" value="{{ra}}" bindinput="bindAddr" />
+                  </view>
+              </view>
+          </view>    
+
+        </view>
+    </view>
+</view>
+
+<view class="weui-form-preview" style="border-bottom:0px;margin-top:8px;">
+    <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">购买数量</view>
+            <view class="weui-form-preview__value">
+              <input class="weui-input" bindinput="bindAmount" type="number" value="1"/>
+            </view>
+        </view>
+    </view>
+    <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">订单总价</view>
+            <view class="weui-form-preview__value_in-hd"> ¥ {{ totalAmount }} 元</view>
+        </view>
+    </view>
+    <view style="margin:0px 15px 30px 15px">
+        <button type="primary" style="margin-bottom:10px;" bindtap="submitOrder">提交订单并付款</button>
+
+        <button type="default" style="margin-bottom:10px;" bindtap="navMyOrder">我的订单</button>
+    </view>
+</view>

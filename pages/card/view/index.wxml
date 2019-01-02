@@ -1,0 +1,60 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="weui-flex cardBack" style="margin:10px;border:5px solid #fff;">
+           <view class="weui-flex__item">
+              <view class="weui-flex box-tb" style="margin-left:10px;margin-top:10px;margin-bottom:10px;color:#333;">
+                <view class="weui-flex__item name">{{cardUser.truename}}</view>
+               <view class="weui-flex__item title">{{cardUser.title}} - {{cardUser.company}}</view>
+               <view class="weui-flex__item title" wx:if="{{cardUser.industry!=null}}">{{cardUser.industry}}</view>
+                <view class="weui-flex__item" style="margin-top:20px" bindtap="callPhone">              
+                    <image style="width:18px;height:18px;" src="../img/phone.png"></image>
+                    <text style="height:18px;line-height:18px;padding-left:15px;color:green;font-size:16px;">{{cardUser.phone}}                          </text>
+                </view>
+                <view class="weui-flex__item">
+                        <image style="width:18px;height:18px;" src="../img/addr.png"></image>
+                        <text style="height:18px;line-height:18px;padding-left:15px;">{{cardUser.addr}}</text>
+                </view>
+              </view>
+           </view>
+           <view class="weui-flex__item" style="text-align:right;margin:15px 10px 0px 0px;">
+            <image src="{{cardUser.avator}}" mode="aspectFit" style="height: 60px;width:60px;border-radius:10px;" />
+           </view>
+        </view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-flex" style="background-color:#fff;padding:10px 10px;height:24px;margin-bottom:10px;" >
+                <view class="cardBtnItem cardBtnItemRightLine" >
+                        <view class="weui-navbar__title justcontent-center">
+                        <image style="width:24px;height:24px;" src="../img/renqi-active.png"></image>
+                        <text>人气：{{cardUser.viewnum}}</text>
+                        </view>
+                </view>
+                <view class="cardBtnItem cardBtnItemRightLine">
+                        <view class="weui-navbar__title justcontent-center" bindtap="cardLike">
+                        <image style="width:24px;height:24px;" src='../img/like{{cardUser.like?"-active":""}}.png'></image>
+                        <text>赞：{{cardUser.likenum}}</text>
+                        </view>
+                </view>
+                <view class="cardBtnItem">
+                        <view class="weui-navbar__title justcontent-center" bindtap="cardSave">
+                        <image style="width:24px;height:24px;" src='../img/fav{{cardUser.save?"-active":""}}.png'></image>
+                        <text>保存：{{cardUser.savenum}}</text></view>
+                </view>
+        </view>
+        
+        <!-- -->
+        <view class="cardBtnItem" style="margin:20px 0px;">
+           <view class="weui-flex justcontent-center">
+            <image style="width:24px;height:24px;margin-right:5px;" src="../img/quan.png"></image>
+            <text bindtap="share2Quan">点我生成图片分享到朋友圈</text>
+          </view>
+        </view>
+       
+        <view style="margin:0px 15px 30px 15px">
+        <button type="primary" open-type="share" style="margin-bottom:10px;" bindtap="doFinishConfirmOK">发送给朋友</button>
+        <button type="default" style="margin-bottom:10px;" bindtap="saveContact">保存到通讯录</button>
+        
+        </view>
+       
+    </view>
+</view>    

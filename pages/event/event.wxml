@@ -1,0 +1,14 @@
+<view class="container more">
+  <view class="my" bindtap="editEmail">
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="img/Email.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>绑定邮箱</text>
+        <text style="display:block;margin-top:10rpx;color:gray;font-size:12px;">绑定邮箱可以将提醒消息到点发送到你邮箱中</text>
+      </view>
+    </view>
+
+  </view>
+</view>

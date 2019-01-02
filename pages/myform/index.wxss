@@ -1,0 +1,19 @@
+@import "../template/tabbar.wxss";
+page{
+  background-color: #F2F2F2;
+  padding-bottom: 70px;
+}
+.page{
+  background-color: #F2F2F2;
+  
+}
+
+
+.weui-cell{
+  background-color:#fff;
+}
+
+.weui-label{
+  font-size:12px;
+  color:#333;
+}

@@ -1,0 +1,13 @@
+<view class="page">
+    <view class="page__hd" style="margin:50rpx;">
+        <view class="page__title">{{title}}</view>
+    </view>
+    <view class="page__bd">
+          <canvas canvas-id="id-gesture-lock" class="gesture-lock" bindtouchstart="onTouchStart"
+    bindtouchmove="onTouchMove" bindtouchend="onTouchEnd"></canvas>
+
+    </view>
+    <view class="page__ft" wx:if="showFooter" style="color:red">
+      {{msg}}
+    </view>
+</view>
