@@ -31,31 +31,28 @@
 
 效果图：
 
-首页：快速记事记账，支持录音记事记账，支持图片上传，同时支持周，月计划编排
+- 首页：快速记事记账，支持录音记事记账，支持图片上传，同时支持周，月计划编排
 
-<center>![首页](http://wx6.sumslack.com/img/1.png')</center>
+![首页](http://wx6.sumslack.com/img/1.png')
 
-分类管理：账本共享给别人，多人记账，支持分类记事记账
+- 分类管理：账本共享给别人，多人记账，支持分类记事记账
 
-<center>![分类管理](http://wx6.sumslack.com/img/2.png')</center>
+![分类管理](http://wx6.sumslack.com/img/2.png')
 
-更多商务工具：电子名片，发票抬头，备忘录等
+- 更多商务工具：电子名片，发票抬头，备忘录等
 
-<center>![商务工具](http://wx6.sumslack.com/img/3.png')</center>
+![商务工具](http://wx6.sumslack.com/img/3.png')
 
-我的：密码锁定，捐助，意见反馈等
+- 我的：密码锁定，捐助，意见反馈等
 
-<center>![我的](http://wx6.sumslack.com/img/4.png')</center>
+![我的](http://wx6.sumslack.com/img/4.png')
 
-商务圈发布信息
+- 商务圈发布信息
 
-<center>
-![商务圈](http://wx6.sumslack.com/img/5.png')</center>
+![商务圈](http://wx6.sumslack.com/img/5.png')
 
-电子名片：管理与分享
+- 电子名片：管理与分享
 
-<center>
 ![电子名片](http://wx6.sumslack.com/img/6.jpg')
-</center>
 
 
