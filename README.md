@@ -32,16 +32,16 @@
 效果图：
 
 - 首页：快速记事记账，支持录音记事记账，支持图片上传，同时支持周，月计划编排
-<img src='http://wx6.sumslack.com/img/1.png' width="500" />
+<img src='http://wx6.sumslack.com/img/1.png'/>
 - 分类管理：账本共享给别人，多人记账，支持分类记事记账
-<img src='http://wx6.sumslack.com/img/2.png' width="500" />
+<img src='http://wx6.sumslack.com/img/2.png'/>
 - 更多商务工具：电子名片，发票抬头，备忘录等
-<img src='http://wx6.sumslack.com/img/3.png' width="500" />
+<img src='http://wx6.sumslack.com/img/3.png'/>
 - 我的
-<img src='http://wx6.sumslack.com/img/4.png' width="500" />
+<img src='http://wx6.sumslack.com/img/4.png'/>
 - 商务圈发布信息
-<img src='http://wx6.sumslack.com/img/5.png' width="500" />
+<img src='http://wx6.sumslack.com/img/5.png' />
 - 电子名片
-<img src='http://wx6.sumslack.com/img/6.jpg' width="500" />
+<img src='http://wx6.sumslack.com/img/6.jpg' />
 
 
