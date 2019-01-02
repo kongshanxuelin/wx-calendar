@@ -24,9 +24,12 @@
 
 使用微信扫描二维码查看效果：
 
-<p style="text-align:center">
-<img src='http://wx6.sumslack.com/img/logo.jpg' alt='preview' />
-</p>
+![小程序码](http://wx6.sumslack.com/img/logo.jpg)
+
+
+如果对我们团队的技术文章有兴趣，可以关注我们的公众号，里面有第一手开源项目和技术文章分享：
+
+![公众号](https://www.sumslack.com/img/gzh.jpg)
 
 
 效果图：
